@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+import os
+import sys
+
 import django
 from django.conf import settings
 from django.core.management import call_command
 
-import os, sys
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 sys.path.insert(0, 'tests')
 

@@ -1,8 +1,5 @@
 # coding=utf-8
-import os
-import sys
-
-from setuptools import setup, Command, find_packages
+from setuptools import setup
 
 
 setup(

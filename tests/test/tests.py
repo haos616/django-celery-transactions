@@ -1,4 +1,5 @@
-import django, os
+import django
+
 from djcelery_transactions import task, shared_task
 
 if django.VERSION < (1, 8):
@@ -41,7 +42,7 @@ try:
     from celery.registry import tasks
 
     tasks.register(my_task)
-except:
+except Exception:
     from celery import task as base_task, current_app, Task
 
     current_app.registry.register(my_task)

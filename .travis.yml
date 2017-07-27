@@ -4,18 +4,21 @@ python:
   - "2.7"
   - "3.3"
   - "3.4"
+  - "3.5"
+  - "3.6"
 
 services: mysql
 
 env:
-  - DJANGO="django==1.8.5" DB="mysql"
-  - DJANGO="django==1.7.10" DB="mysql"
-  - DJANGO="django==1.6.11" DB="mysql"
+  - DJANGO="django==1.7.11" DB="mysql"
+  - DJANGO="django==1.8.18" DB="mysql"
+  - DJANGO="django==1.9.13" DB="mysql"
+  - DJANGO="django==1.10.7" DB="mysql"
+  - DJANGO="django==1.11.3" DB="mysql"
 
 install:
   - pip install $DJANGO
-  - pip install celery==3.1.18
-  - pip install django-celery==3.1.16
+  - pip install celery==4.1.0
   - pip install coveralls
   - pip install mysqlclient
 
@@ -24,7 +27,6 @@ before_script:
 
 script:
   - coverage run --source=djcelery_transactions runtests.py
-  - coverage run --source=djcelery_transactions runtests-djcelery.py
 
 after_success:
   coveralls
@@ -32,6 +34,6 @@ after_success:
 notifications:
   email:
     recipients:
-      - nicolas.grasset@gmail.com
+      - haos616@gmail.com
     on_success: change
     on_failure: change
